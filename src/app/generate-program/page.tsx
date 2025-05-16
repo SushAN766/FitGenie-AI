@@ -109,7 +109,7 @@ const GenerateProgramPage = () => {
         await vapi.start(process.env.NEXT_PUBLIC_VAPI_WORKFLOW_ID!, {
           variableValues: {
             full_name: fullName,
-            // user_id: user?.id,
+            user_id: user?.id,
           },
         });
       } catch (error) {
