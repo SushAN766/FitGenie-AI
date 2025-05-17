@@ -1,10 +1,11 @@
-"use client"
-import { useEffect, useRef, useState } from "react";
+"use client";
+
+import { Button } from "@/components/ui/button";
+import { Card } from "@/components/ui/card";
+import { vapi } from "@/lib/vapi";
 import { useUser } from "@clerk/nextjs";
 import { useRouter } from "next/navigation";
-import { vapi } from "@/lib/vapi";
-import { Card } from "@/components/ui/card";
-import { Button } from "@/components/ui/button";
+import { useEffect, useRef, useState } from "react";
 
 const GenerateProgramPage = () => {
   const [callActive, setCallActive] = useState(false);
@@ -15,16 +16,41 @@ const GenerateProgramPage = () => {
 
   const { user } = useUser();
   const router = useRouter();
-  
+
   const messageContainerRef = useRef<HTMLDivElement>(null);
-  // auto scroll messages to bottom
+
+  // SOLUTION to get rid of "Meeting has ended" error
+  useEffect(() => {
+    const originalError = console.error;
+    // override console.error to ignore "Meeting has ended" errors
+    console.error = function (msg, ...args) {
+      if (
+        msg &&
+        (msg.includes("Meeting has ended") ||
+          (args[0] && args[0].toString().includes("Meeting has ended")))
+      ) {
+        console.log("Ignoring known error: Meeting has ended");
+        return; // don't pass to original handler
+      }
+
+      // pass all other errors to the original handler
+      return originalError.call(console, msg, ...args);
+    };
+
+    // restore original handler on unmount
+    return () => {
+      console.error = originalError;
+    };
+  }, []);
+
+  // auto-scroll messages
   useEffect(() => {
     if (messageContainerRef.current) {
       messageContainerRef.current.scrollTop = messageContainerRef.current.scrollHeight;
     }
   }, [messages]);
 
-  //Redirect the user to their profile page once the call concludes.
+  // navigate user to profile page after the call ends
   useEffect(() => {
     if (callEnded) {
       const redirectTimer = setTimeout(() => {
@@ -35,8 +61,7 @@ const GenerateProgramPage = () => {
     }
   }, [callEnded, router]);
 
-
-  // setup the vapi client
+  // setup event listeners for vapi
   useEffect(() => {
     const handleCallStart = () => {
       console.log("Call started");
@@ -74,6 +99,7 @@ const GenerateProgramPage = () => {
       setConnecting(false);
       setCallActive(false);
     };
+
     vapi
       .on("call-start", handleCallStart)
       .on("call-end", handleCallEnd)
@@ -82,6 +108,7 @@ const GenerateProgramPage = () => {
       .on("message", handleMessage)
       .on("error", handleError);
 
+    // cleanup event listeners on unmount
     return () => {
       vapi
         .off("call-start", handleCallStart)
@@ -92,7 +119,6 @@ const GenerateProgramPage = () => {
         .off("error", handleError);
     };
   }, []);
-
 
   const toggleCall = async () => {
     if (callActive) vapi.stop();
@@ -119,7 +145,6 @@ const GenerateProgramPage = () => {
     }
   };
 
-
   return (
     <div className="flex flex-col min-h-screen text-foreground overflow-hidden  pb-6 pt-24">
       <div className="container mx-auto px-4 h-full max-w-5xl">
@@ -134,13 +159,13 @@ const GenerateProgramPage = () => {
           </p>
         </div>
 
-         {/* VIDEO CALL AREA */}
-         <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mb-8">
+        {/* VIDEO CALL AREA */}
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mb-8">
           {/* AI ASSISTANT CARD */}
           <Card className="bg-card/90 backdrop-blur-sm border border-border overflow-hidden relative">
             <div className="aspect-video flex flex-col items-center justify-center p-6 relative">
-            {/* AI ANIMATION VOICE */}
-            <div
+              {/* AI VOICE ANIMATION */}
+              <div
                 className={`absolute inset-0 ${
                   isSpeaking ? "opacity-30" : "opacity-0"
                 } transition-opacity duration-300`}
@@ -161,26 +186,30 @@ const GenerateProgramPage = () => {
                   ))}
                 </div>
               </div>
-              {/* AI IMAGE CONTAINER */}
-              <div className="relative size-32 mb-4" >
-              <div
+
+              {/* AI IMAGE */}
+              <div className="relative size-32 mb-4">
+                <div
                   className={`absolute inset-0 bg-primary opacity-10 rounded-full blur-lg ${
                     isSpeaking ? "animate-pulse" : ""
                   }`}
                 />
+
                 <div className="relative w-full h-full rounded-full bg-card flex items-center justify-center border border-border overflow-hidden">
                   <div className="absolute inset-0 bg-gradient-to-b from-primary/10 to-secondary/10"></div>
                   <img
-                    src="/ai-avatar1.png"
+                    src="/ai-avatar.png"
                     alt="AI Assistant"
                     className="w-full h-full object-cover"
                   />
                 </div>
               </div>
 
-              <h2 className="text-xl font-bold text-foreground">Flexora AI</h2>
+              <h2 className="text-xl font-bold text-foreground">CodeFlex AI</h2>
               <p className="text-sm text-muted-foreground mt-1">Fitness & Diet Coach</p>
+
               {/* SPEAKING INDICATOR */}
+
               <div
                 className={`mt-4 flex items-center gap-2 px-3 py-1 rounded-full bg-card border border-border ${
                   isSpeaking ? "border-primary" : ""
@@ -202,9 +231,7 @@ const GenerateProgramPage = () => {
                         : "Waiting..."}
                 </span>
               </div>
-
             </div>
-          
           </Card>
 
           {/* USER CARD */}
@@ -232,13 +259,10 @@ const GenerateProgramPage = () => {
               </div>
             </div>
           </Card>
+        </div>
 
-          
-         
-         
-         </div>
-         {/* MESSAGE COINTER  */}
-         {messages.length > 0 && (
+        {/* MESSAGE COINTER  */}
+        {messages.length > 0 && (
           <div
             ref={messageContainerRef}
             className="w-full bg-card/90 backdrop-blur-sm border border-border rounded-xl p-4 mb-8 h-64 overflow-y-auto transition-all duration-300 scroll-smooth"
@@ -247,7 +271,7 @@ const GenerateProgramPage = () => {
               {messages.map((msg, index) => (
                 <div key={index} className="message-item animate-fadeIn">
                   <div className="font-semibold text-xs text-muted-foreground mb-1">
-                    {msg.role === "assistant" ? "Flexora AI" : "You"}:
+                    {msg.role === "assistant" ? "CodeFlex AI" : "You"}:
                   </div>
                   <p className="text-foreground">{msg.content}</p>
                 </div>
@@ -265,10 +289,8 @@ const GenerateProgramPage = () => {
           </div>
         )}
 
-
-
-          {/* CALL CONTROLS */}
-          <div className="w-full flex justify-center gap-4">
+        {/* CALL CONTROLS */}
+        <div className="w-full flex justify-center gap-4">
           <Button
             className={`w-40 text-xl rounded-3xl ${
               callActive
@@ -283,6 +305,7 @@ const GenerateProgramPage = () => {
             {connecting && (
               <span className="absolute inset-0 rounded-full animate-ping bg-primary/50 opacity-75"></span>
             )}
+
             <span>
               {callActive
                 ? "End Call"
@@ -292,13 +315,10 @@ const GenerateProgramPage = () => {
                     ? "View Profile"
                     : "Start Call"}
             </span>
-            
           </Button>
         </div>
-
       </div>
     </div>
-  )
-}
-
+  );
+};
 export default GenerateProgramPage;
