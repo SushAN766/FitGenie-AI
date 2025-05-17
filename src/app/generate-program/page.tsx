@@ -198,14 +198,14 @@ const GenerateProgramPage = () => {
                 <div className="relative w-full h-full rounded-full bg-card flex items-center justify-center border border-border overflow-hidden">
                   <div className="absolute inset-0 bg-gradient-to-b from-primary/10 to-secondary/10"></div>
                   <img
-                    src="/ai-avatar.png"
+                    src="/ai-avatar1.png"
                     alt="AI Assistant"
                     className="w-full h-full object-cover"
                   />
                 </div>
               </div>
 
-              <h2 className="text-xl font-bold text-foreground">CodeFlex AI</h2>
+              <h2 className="text-xl font-bold text-foreground">Flexora AI</h2>
               <p className="text-sm text-muted-foreground mt-1">Fitness & Diet Coach</p>
 
               {/* SPEAKING INDICATOR */}
@@ -271,7 +271,7 @@ const GenerateProgramPage = () => {
               {messages.map((msg, index) => (
                 <div key={index} className="message-item animate-fadeIn">
                   <div className="font-semibold text-xs text-muted-foreground mb-1">
-                    {msg.role === "assistant" ? "CodeFlex AI" : "You"}:
+                    {msg.role === "assistant" ? "Flexora AI" : "You"}:
                   </div>
                   <p className="text-foreground">{msg.content}</p>
                 </div>
