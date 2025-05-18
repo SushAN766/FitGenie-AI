@@ -12,17 +12,6 @@ A full-stack AI-driven fitness platform designed to revolutionize personal healt
 
 ---
 
-## 🌟 Features
-
-- 🚀 **AI-Generated Fitness Plans:** Dynamic workout and diet programs tailored to your body type, goals, and preferences.
-- 🎙️ **Vapi Voice Assistant:** Enjoy hands-free interaction with a conversational Voice AI.
-- 🧠 **Gemini AI Integration:** Leverages LLMs for real-time responses, recommendations, and insights.
-- 🔒 **Secure Authentication:** Powered by Clerk for seamless sign-in, sign-up, and user management.
-- 💾 **Real-Time Database:** Utilizes Convex for efficient, serverless data management.
-- 💻 **Modern UI/UX:** Built with TailwindCSS and Shadcn UI for a sleek, responsive design.
-- ⚙️ **Optimized Architecture:** Combines server and client components using Next.js for performance and scalability.
-
----
 
 ## 🌟 Features
 
