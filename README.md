@@ -52,8 +52,8 @@ A full-stack AI-driven fitness platform designed to revolutionize personal healt
 
 ```bash
 # Clone the repository
-git clone https://github.com/yourusername/ai-fitness-assistant.git
-cd ai-fitness-assistant
+git clone https://github.com/yourusername/Flexora-ai.git
+cd Flexora-ai
 
 # Install dependencies
 npm install
@@ -94,7 +94,7 @@ _Coming Soon: Add UI previews here._
 ## 🤝 Contributing
 
 Contributions, issues, and feature requests are welcome!  
-Feel free to [open an issue](https://github.com/yourusername/ai-fitness-assistant/issues) or submit a pull request.
+Feel free to [open an issue](https://github.com/SushAN766/Flexora-ai/issues) or submit a pull request.
 
 ---
 
