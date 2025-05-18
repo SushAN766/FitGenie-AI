@@ -100,7 +100,7 @@ Feel free to [open an issue](https://github.com/yourusername/ai-fitness-assistan
 
 ## 📄 License
 
-MIT © [Your Name](https://github.com/yourusername)
+MIT © [Sushanth](https://github.com/SushAN766)
 
 ---
 
@@ -137,5 +137,5 @@ MIT © [Your Name](https://github.com/yourusername)
    VAPI_API_KEY=your_key
    ```
 4. **Deploy! 🚀**
-  Hit Deploy and your AI fitness assistant will be live!
+    Hit Deploy and your AI fitness assistant will be live!
 
