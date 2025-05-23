@@ -89,7 +89,7 @@ const HomePage = () => {
             <div className="relative aspect-square max-w-lg mx-auto">
                <div className="relative overflow-hidden rounded-lg bg-cyber-black">
                 <img
-                    src="/hero-ai3.png"
+                    src="/hero-ai1.png"
                     alt="AI Fitness Coach"
                     className="size-full object-cover object-center"
                   />
@@ -100,7 +100,7 @@ const HomePage = () => {
                     <div className="absolute top-1/3 left-1/3 w-1/3 h-1/3 border border-primary/40 rounded-full" />
 
                     
-                    {/* Targeting lines */}
+                  {/* Targeting lines */}
                     <div className="absolute top-1/2 left-0 w-1/4 h-px bg-primary/50" />
                     <div className="absolute top-1/2 right-0 w-1/4 h-px bg-primary/50" />
                     <div className="absolute top-0 left-1/2 h-1/4 w-px bg-primary/50" />
