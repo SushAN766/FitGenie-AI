@@ -1,4 +1,4 @@
-# 🤖 AI-Powered Personal Fitness Assistant
+#  AI-Powered Personal Fitness Assistant
 
 A full-stack AI-driven fitness platform designed to revolutionize personal health and wellness through smart workout planning, real-time diet recommendations, and an interactive voice experience.
 
@@ -8,29 +8,29 @@ A full-stack AI-driven fitness platform designed to revolutionize personal healt
 
 ## 🔗 Live Demo
 
-🌐 [Visit Demo](https://your-vercel-app.vercel.app)
+ [Visit Demo](https://your-vercel-app.vercel.app)
 
 ---
 
 
-## 🌟 Features
+##  Features
 
-- 🚀 **AI-Generated Fitness Plans**  
+-  **AI-Generated Fitness Plans**  
   Personalized workout and diet programs tailored to user preferences and goals.
 
 - 🎙️ **Vapi Voice Assistant**  
   Hands-free, voice-based interaction with your personal fitness AI.
 
-- 🧠 **Gemini AI Integration**  
+-  **Gemini AI Integration**  
   Real-time responses and intelligent suggestions using Google’s LLM.
 
-- 🔒 **Secure Auth with Clerk**  
+-  **Secure Auth with Clerk**  
   Fully managed sign-in/sign-up system with session management.
 
-- 💾 **Convex Realtime DB**  
+-  **Convex Realtime DB**  
   Serverless, reactive data store for seamless state management.
 
-- 💻 **Modern UI/UX**  
+-  **Modern UI/UX**  
   Built with TailwindCSS and Shadcn UI components for responsive, elegant design.
 
 - ⚙️ **Next.js Client/Server Optimization**  
@@ -38,7 +38,7 @@ A full-stack AI-driven fitness platform designed to revolutionize personal healt
 
 ---
 
-## 🛠️ Tech Stack
+## 🛠 Tech Stack
 
 - **Frontend:** Next.js 14 (App Router), React, TailwindCSS, Shadcn UI
 - **AI & Voice:** Vapi (Voice AI SDK), Gemini AI (Google's LLM)
@@ -48,7 +48,7 @@ A full-stack AI-driven fitness platform designed to revolutionize personal healt
 
 ---
 
-## 📦 Installation
+##  Installation
 
 ```bash
 # Clone the repository
@@ -65,7 +65,7 @@ cp .env.example .env.local
 # Run the development server
 npm run dev
 ```
-## 🔐 Environment Variables
+##  Environment Variables
 
 Create a `.env.local` file with the following:
 
@@ -76,22 +76,16 @@ CONVEX_DEPLOYMENT_URL=your_url
 GEMINI_API_KEY=your_key
 VAPI_API_KEY=your_key
 ```
-## 🚧 Roadmap
+##  Roadmap
 
-- [ ] Add fitness progress tracking and graphs 📈  
-- [ ] Integrate wearable device data (e.g. Fitbit, Apple Watch) ⌚  
-- [ ] Implement community features like forums and groups 👥  
-- [ ] Push notifications for reminders and progress 🔔  
-
----
-
-## 📸 Screenshots
-
-_Coming Soon: Add UI previews here._
+- [ ] Add fitness progress tracking and graphs  
+- [ ] Integrate wearable device data (e.g. Fitbit, Apple Watch) 
+- [ ] Implement community features like forums and groups  
+- [ ] Push notifications for reminders and progress 
 
 ---
 
-## 🤝 Contributing
+##  Contributing
 
 Contributions, issues, and feature requests are welcome!  
 Feel free to [open an issue](https://github.com/SushAN766/Flexora-ai/issues) or submit a pull request.
@@ -104,7 +98,7 @@ MIT © [Sushanth](https://github.com/SushAN766)
 
 ---
 
-## 🙌 Acknowledgements
+##  Acknowledgements
 
 - [Vapi AI](https://www.vapi.ai/)  
 - [Google Gemini](https://deepmind.google/technologies/gemini/)  
@@ -116,7 +110,7 @@ MIT © [Sushanth](https://github.com/SushAN766)
 
 ---
 
-## 🚀 Deployment (Vercel)
+##  Deployment (Vercel)
 
 1. **Push to GitHub**  
    Upload your project to a new GitHub repository.
