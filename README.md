@@ -6,7 +6,7 @@ A full-stack AI-driven fitness platform designed to revolutionize personal healt
 
 ---
 
-## 🔗 Live Demo
+##  Live Demo
 
  [Visit Demo](https://your-vercel-app.vercel.app)
 
@@ -18,7 +18,7 @@ A full-stack AI-driven fitness platform designed to revolutionize personal healt
 -  **AI-Generated Fitness Plans**  
   Personalized workout and diet programs tailored to user preferences and goals.
 
-- 🎙️ **Vapi Voice Assistant**  
+-  **Vapi Voice Assistant**  
   Hands-free, voice-based interaction with your personal fitness AI.
 
 -  **Gemini AI Integration**  
@@ -33,12 +33,12 @@ A full-stack AI-driven fitness platform designed to revolutionize personal healt
 -  **Modern UI/UX**  
   Built with TailwindCSS and Shadcn UI components for responsive, elegant design.
 
-- ⚙️ **Next.js Client/Server Optimization**  
+-  **Next.js Client/Server Optimization**  
   App Router with hybrid rendering for performance and scalability.
 
 ---
 
-## 🛠 Tech Stack
+##  Tech Stack
 
 - **Frontend:** Next.js 14 (App Router), React, TailwindCSS, Shadcn UI
 - **AI & Voice:** Vapi (Voice AI SDK), Gemini AI (Google's LLM)
@@ -92,12 +92,6 @@ Feel free to [open an issue](https://github.com/SushAN766/Flexora-ai/issues) or 
 
 ---
 
-## 📄 License
-
-MIT © [Sushanth](https://github.com/SushAN766)
-
----
-
 ##  Acknowledgements
 
 - [Vapi AI](https://www.vapi.ai/)  
@@ -130,6 +124,6 @@ MIT © [Sushanth](https://github.com/SushAN766)
    GEMINI_API_KEY=your_key
    VAPI_API_KEY=your_key
    ```
-4. **Deploy! 🚀**
+4. **Deploy!**
     Hit Deploy and your AI fitness assistant will be live!
 
